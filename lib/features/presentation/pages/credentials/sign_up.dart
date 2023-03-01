@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:insta_clone_clean_arch/features/presentation/pages/credentials/sign_up.dart';
+import 'package:fluttericon/octicons_icons.dart';
+import 'package:insta_clone_clean_arch/features/presentation/pages/credentials/sign_in.dart';
 import 'package:insta_clone_clean_arch/features/presentation/widgets/button_container_widget.dart';
 import 'package:insta_clone_clean_arch/features/presentation/widgets/form_container_widget.dart';
 
 import '../../../core.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +23,19 @@ class SignInPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              sizeVer(height * .2),
+              sizeVer(height * .1),
 
               SvgPicture.asset(
                 'assets/instagram-text.svg',
                 color: primaryColor,
+              ),
+
+              sizeVer(20),
+
+              Text(
+                'Sign up to see photos and videos from your friends.',
+                textAlign: TextAlign.center,
+                style: boldStyle(fontSize: 14),
               ),
 
               sizeVer(20),
@@ -40,9 +49,33 @@ class SignInPage extends StatelessWidget {
                 },
               ),
 
-              sizeVer(20),
+              sizeVer(10),
 
-              //
+              Center(
+                child: Stack(
+                  children: [
+                    Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: secondaryColor),
+                        child: SvgPicture.asset('assets/person.svg')),
+                    const Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: Icon(
+                        Entypo.camera,
+                        color: blueColor,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              sizeVer(10),
+
+              // OR
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -79,14 +112,26 @@ class SignInPage extends StatelessWidget {
                 hintText: 'Email',
               ),
 
-              sizeVer(20),
+              sizeVer(10),
+
+              const FormContainerWidget(
+                hintText: 'Fullname',
+              ),
+
+              sizeVer(10),
+
+              const FormContainerWidget(
+                hintText: 'Username',
+              ),
+
+              sizeVer(10),
 
               const FormContainerWidget(
                 hintText: 'Password',
                 isPasswordField: true,
               ),
 
-              sizeVer(20),
+              sizeVer(10),
 
               Align(
                 alignment: Alignment.centerRight,
@@ -111,20 +156,20 @@ class SignInPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account ? "),
+                  const Text("Have an account ? "),
                   InkWell(
                     onTap: () {
                       print('....Log in button pressed....');
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignUpPage(),
+                            builder: (context) => const SignInPage(),
                           ),
                           (route) => false);
                     },
                     child: Text(
-                      "Sign up",
-                      style: boldStyle(color: blueColor),
+                      "Log in",
+                      style: regularStyle(color: blueColor),
                     ),
                   ),
                 ],
