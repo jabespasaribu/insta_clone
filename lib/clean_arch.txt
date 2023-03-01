@@ -1,0 +1,45 @@
+Presentation    -> Widgets
+                -> Logic    (BLoC, ChangeNotifier)
+
+<------------------->
+
+Domain          -> Use Case
+                -> Repository
+
+<------------------->
+
+Data            -> Repository
+                -> Data Source
+
+<---------------------------------------------------------->
+
+lib
+|
+|
+|___feature
+    |
+    |
+    |___data
+        |
+        |
+        |___models
+        |___repositories
+
+    |
+    |
+    |___domain
+        |
+        |
+        |___entities
+        |___repositories
+        |___usecases
+
+    |
+    |
+    |___presentation
+        |
+        |
+        |___cubits
+        |___pages
+        |___widgets
+
