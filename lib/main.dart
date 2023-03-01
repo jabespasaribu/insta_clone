@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'features/presentation/pages/credentials/sign_in.dart';
 
-import 'features/presentation/pages/home.dart';
-
 void main() {
   runApp(const CleanArch());
 }

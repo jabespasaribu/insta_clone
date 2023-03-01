@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:insta_clone_clean_arch/features/core.dart';
 
@@ -19,14 +18,17 @@ class ButtonContainerWidget extends StatelessWidget {
     return InkWell(
       onTap: onTapListener,
       child: Container(
+        padding: const EdgeInsets.all(5),
         width: 120,
         height: 30,
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(10)),
-        child: Text(
-          text!,
-          style:
-              const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+        child: Center(
+          child: Text(
+            text!,
+            style: const TextStyle(
+                color: primaryColor, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
