@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:insta_clone_clean_arch/features/presentation/widgets/button_container_widget.dart';
 import 'package:insta_clone_clean_arch/features/presentation/widgets/form_container_widget.dart';
 
 import '../../../core.dart';
@@ -105,7 +106,11 @@ class SignInPage extends StatelessWidget {
 
               sizeVer(20),
 
-              ElevatedButton(onPressed: () {}, child: const Text('Log in'))
+              ButtonContainerWidget(
+                color: blueColor,
+                onTapListener: () {},
+                text: 'Log in',
+              )
             ],
           ),
         ),
