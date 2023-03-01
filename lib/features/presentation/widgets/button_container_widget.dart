@@ -5,12 +5,16 @@ class ButtonContainerWidget extends StatelessWidget {
   final Color? color;
   final String? text;
   final VoidCallback? onTapListener;
+  final bool? isIconed;
+  final IconData? icon;
 
   const ButtonContainerWidget({
     Key? key,
-    this.color,
+    this.color = blueColor,
     this.text,
     this.onTapListener,
+    this.icon,
+    this.isIconed,
   }) : super(key: key);
 
   @override
@@ -19,16 +23,27 @@ class ButtonContainerWidget extends StatelessWidget {
       onTap: onTapListener,
       child: Container(
         padding: const EdgeInsets.all(5),
-        width: 120,
-        height: 30,
+        width: double.infinity,
+        height: 40,
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(10)),
         child: Center(
-          child: Text(
-            text!,
-            style: const TextStyle(
-                color: primaryColor, fontWeight: FontWeight.bold),
-          ),
+          child: isIconed == true
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(icon!),
+                    sizeHor(10),
+                    Text(text!,
+                        style: const TextStyle(
+                            color: primaryColor, fontWeight: FontWeight.bold)),
+                  ],
+                )
+              : Text(
+                  text!,
+                  style: const TextStyle(
+                      color: primaryColor, fontWeight: FontWeight.bold),
+                ),
         ),
       ),
     );
